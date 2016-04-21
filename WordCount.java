@@ -47,7 +47,9 @@ public class WordCount {
 				if(s.equals("harry")||s.equals("hermione")){
 					word.set(s);
 				}
+				context.write(word, one);
 			}
+			
 			
 	  }
 	  /*
@@ -58,11 +60,11 @@ public class WordCount {
 		if(s.equals("harry")||s.equals("hermione")){
 			word.set(s);
 		}
-		*/
+		
         //word.set(itr.nextToken());
-        context.write(word, one);
+        
       }
-	  
+	  */
 	  
     }
   }
