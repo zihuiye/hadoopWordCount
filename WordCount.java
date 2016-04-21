@@ -43,7 +43,7 @@ public class WordCount {
       StringTokenizer itr = new StringTokenizer(value.toString(),"[^a-zA-Z]");
       while (itr.hasMoreTokens()) {
 		String s = itr.nextToken();
-		s=s.toLoerCase();
+		s=s.toLowerCase();
 		if(s.equals("harry")||s.equals("hermione")){
 			word.set(s);
 		}
