@@ -39,7 +39,18 @@ public class WordCount {
       
     public void map(Object key, Text value, Context context
                     ) throws IOException, InterruptedException {
-						
+
+					
+	  String [] l = value.toString().split("[^a-zA-Z]");
+	  for(String line: l){
+			if(!line.isEmpty()){
+				if(s.equals("harry")||s.equals("hermione")){
+					word.set(s);
+				}
+			}
+			
+	  }
+	  */
       StringTokenizer itr = new StringTokenizer(value.toString(),"[^a-zA-Z]");
       while (itr.hasMoreTokens()) {
 		String s = itr.nextToken();
@@ -47,6 +58,7 @@ public class WordCount {
 		if(s.equals("harry")||s.equals("hermione")){
 			word.set(s);
 		}
+		*/
         //word.set(itr.nextToken());
         context.write(word, one);
       }
