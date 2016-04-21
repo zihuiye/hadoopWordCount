@@ -41,12 +41,16 @@ public class WordCount {
                     ) throws IOException, InterruptedException {
 
 					
-	  String [] l = value.toString().split("[^a-zA-Z]");
+	  //String [] l = value.toString()
+	  //.split("[^a-zA-Z]");
+	  word.set(value.toString());
+	  context.write(word,one);
+	  /*
 	  for(String line: l){
 			if(!line.isEmpty()){
 				line = line.toLowerCase();
 				if(line.equals("harry")||line.equals("hermione")){
-					System.out.println(line);
+					
 					word.set(line);
 					context.write(word, one);
 				}
@@ -55,6 +59,7 @@ public class WordCount {
 			
 			
 	  }
+	  */
 	  /*
       StringTokenizer itr = new StringTokenizer(value.toString(),"[^a-zA-Z]");
       while (itr.hasMoreTokens()) {
