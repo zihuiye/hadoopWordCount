@@ -16,7 +16,7 @@
 package org.apache.hadoop.examples;
 
 import java.io.IOException;
-import java.util.StringTokenizer;
+//import java.util.StringTokenizer;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -34,7 +34,7 @@ public class WordCount {
   public static class TokenizerMapper 
        extends Mapper<Object, Text, Text, IntWritable>{
     
-    private final static IntWritable one = new IntWritable(1);
+    private final static IntWritable one = new IntWritable(2);
     private Text word = new Text();
       
     public void map(Object key, Text value, Context context
