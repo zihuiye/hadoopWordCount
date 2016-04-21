@@ -44,8 +44,8 @@ public class WordCount {
 	  String [] l = value.toString().split("[^a-zA-Z]");
 	  for(String line: l){
 			if(!line.isEmpty()){
-				if(s.equals("harry")||s.equals("hermione")){
-					word.set(s);
+				if(line.equals("harry")||line.equals("hermione")){
+					word.set(line);
 				}
 				context.write(word, one);
 			}
