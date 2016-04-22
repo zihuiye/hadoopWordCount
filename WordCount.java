@@ -43,7 +43,7 @@ public class WordCount {
 					
 	  //String [] l = value.toString()
 	  //.split("[^a-zA-Z]");
-	  word.set(value.toString());
+	  word.set("HAHA");
 	  context.write(word,one);
 	  /*
 	  for(String line: l){
