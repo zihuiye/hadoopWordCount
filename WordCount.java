@@ -13,7 +13,7 @@
  */
 
 
-package org.apache.hadoop.examples;
+package com.ye.hadoop;
 
 import java.io.IOException;
 //import java.util.StringTokenizer;
@@ -45,6 +45,7 @@ public class WordCount {
 	  //.split("[^a-zA-Z]");
 	  word.set("HAHA");
 	  context.write(word,one);
+	  
 	  /*
 	  for(String line: l){
 			if(!line.isEmpty()){
