@@ -28,7 +28,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-public class WordCount {
+public class Edge {
 
   public static class SplitMapper 
        extends Mapper<Object, Text, Text, Text>{
