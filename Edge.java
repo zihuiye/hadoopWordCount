@@ -124,7 +124,7 @@ public class Edge {
       System.exit(2);
     }
     Job job = new Job(conf, "word count");
-    job.setJarByClass(WordCount.class);
+    job.setJarByClass(Edge.class);
     job.setMapperClass(SplitMapper.class);
     job.setCombinerClass(DuplicateCombiner.class);
     job.setReducerClass(IntSumReducer.class);
