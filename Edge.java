@@ -43,8 +43,8 @@ public class Edge {
 
 					
 		String [] l = value.toString().split("[^0-9]");
-		word.set(value.toString());
-		v.set(value.toString());
+		word.set(l[0]);
+		v.set(l[1]);
 		context.write(word,v);
 		
 		/*
@@ -89,7 +89,7 @@ public class Edge {
 				if(!hs.contains(t.toString())){
 					hs.add(t.toString());
 				}
-				context.write(key,t);
+				//context.write(key,t);
 			}
 			/*
 			Iterator<String> itr = hs.iterator();
@@ -114,7 +114,7 @@ public class Edge {
 			if(!hs.contains(t.toString())){
 				hs.add(t.toString());
 			}
-			context.write(key,t);
+			//context.write(key,t);
 		}
 		/*
 		result.set(String.valueOf(hs.size()));
