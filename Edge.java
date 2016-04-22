@@ -89,7 +89,7 @@ public class Edge {
 				if(!hs.contains(t.toString())){
 					hs.add(t.toString());
 				}
-				//context.write(key,t);
+				context.write(key,t);
 			}
 			/*
 			Iterator<String> itr = hs.iterator();
@@ -114,7 +114,7 @@ public class Edge {
 			if(!hs.contains(t.toString())){
 				hs.add(t.toString());
 			}
-			//context.write(key,t);
+			context.write(key,t);
 		}
 		/*
 		result.set(String.valueOf(hs.size()));
