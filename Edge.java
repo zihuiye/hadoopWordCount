@@ -83,17 +83,21 @@ public class Edge {
 		HashSet<String> hs = new HashSet<String>();
 		public void reduce(Text key,Iterable<Text> values,Context context) throws IOException, InterruptedException{
 			
+			
+			
 			for(Text t:values){
 				if(!hs.contains(t.toString())){
 					hs.add(t.toString());
 				}
+				context.write(key,t);
 			}
+			/*
 			Iterator<String> itr = hs.iterator();
 			while(itr.hasNext()){
 				v.set(itr.next());
 				context.write(key,v);
 			}
-			
+			*/
 		}
   }
   public static class IntSumReducer 
@@ -110,10 +114,12 @@ public class Edge {
 			if(!hs.contains(t.toString())){
 				hs.add(t.toString());
 			}
+			context.write(key,t);
 		}
+		/*
 		result.set(String.valueOf(hs.size()));
 		context.write(key,result);
-	  
+		*/
     }
   }
 
