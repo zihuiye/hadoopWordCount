@@ -103,13 +103,13 @@ public class Edge {
   public static class IntSumReducer 
        extends Reducer<Text,Text,Text,Text> {
     private Text result = new Text();
-	private HashSet<String> hs = new HashSet<String>();
+	
     public void reduce(Text key, Iterable<Text> values, 
                        Context context
                        ) throws IOException, InterruptedException {
 		
 		
-		
+		HashSet<String> hs = new HashSet<String>();
 		for(Text t:values){
 			if(!hs.contains(t.toString())){
 				hs.add(t.toString());
