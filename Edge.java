@@ -36,7 +36,7 @@ public class Edge {
     
     //private final static IntWritable one = new IntWritable(1);
     private Text word = new Text();
-    private Text value = new Text();
+    private Text v = new Text();
 	
     public void map(Object key, Text value, Context context
                     ) throws IOException, InterruptedException {
@@ -44,8 +44,8 @@ public class Edge {
 					
 		String [] l = value.toString().split(" ");
 		word.set(l[0]);
-		value.set(l[1]);
-		context.write(word,value);
+		v.set(l[1]);
+		context.write(word,v);
 		
 		/*
 		for(String line: l){
