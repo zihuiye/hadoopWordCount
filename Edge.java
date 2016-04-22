@@ -97,8 +97,8 @@ public class Edge {
 		}
   }
   public static class IntSumReducer 
-       extends Reducer<Text,Text,Text,IntWritable> {
-    private IntWritable result = new IntWritable();
+       extends Reducer<Text,Text,Text,Text> {
+    private Text result = new Text();
 	
     public void reduce(Text key, Iterable<Text> values, 
                        Context context
@@ -130,7 +130,7 @@ public class Edge {
     job.setCombinerClass(DuplicateCombiner.class);
     job.setReducerClass(IntSumReducer.class);
     job.setOutputKeyClass(Text.class);
-    job.setOutputValueClass(IntWritable.class);
+    job.setOutputValueClass(Text.class);
     FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
     FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
     System.exit(job.waitForCompletion(true) ? 0 : 1);
