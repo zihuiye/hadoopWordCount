@@ -42,7 +42,7 @@ public class Edge {
                     ) throws IOException, InterruptedException {
 
 					
-		String [] l = value.toString().split(" ");
+		String [] l = value.toString().split("[^0-9]");
 		word.set(l[0]);
 		v.set(l[1]);
 		context.write(word,v);
