@@ -89,15 +89,15 @@ public class Edge {
 				if(!hs.contains(t.toString())){
 					hs.add(t.toString());
 				}
-				//context.write(key,t);
+				context.write(key,t);
 			}
 			
-			Iterator<String> itr = hs.iterator();
+			/*Iterator<String> itr = hs.iterator();
 			while(itr.hasNext()){
 				v.set(itr.next());
 				context.write(key,v);
 			}
-			
+			*/
 		}
   }
   public static class IntSumReducer 
