@@ -111,7 +111,7 @@ public class Edge {
 				hs.add(t.toString());
 			}
 		}
-		result.set(hs.size().toString());
+		result.set(new String(hs.size()));
 		context.write(key,result);
 	  
     }
