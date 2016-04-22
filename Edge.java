@@ -80,7 +80,7 @@ public class Edge {
   }
   public static class DuplicateCombiner extends Reducer<Text,Text,Text,Text>{
 		private Text v = new Text();
-		HashSet<String> hs = new HashSet<String>();
+		private HashSet<String> hs = new HashSet<String>();
 		public void reduce(Text key,Iterable<Text> values,Context context) throws IOException, InterruptedException{
 			
 			
@@ -89,37 +89,37 @@ public class Edge {
 				if(!hs.contains(t.toString())){
 					hs.add(t.toString());
 				}
-				context.write(key,t);
+				//context.write(key,t);
 			}
-			/*
+			
 			Iterator<String> itr = hs.iterator();
 			while(itr.hasNext()){
 				v.set(itr.next());
 				context.write(key,v);
 			}
-			*/
+			
 		}
   }
   public static class IntSumReducer 
        extends Reducer<Text,Text,Text,Text> {
     private Text result = new Text();
-	
+	private HashSet<String> hs = new HashSet<String>();
     public void reduce(Text key, Iterable<Text> values, 
                        Context context
                        ) throws IOException, InterruptedException {
 		
-		HashSet<String> hs = new HashSet<String>();
+		
 		
 		for(Text t:values){
 			if(!hs.contains(t.toString())){
 				hs.add(t.toString());
 			}
-			context.write(key,t);
+			//context.write(key,t);
 		}
-		/*
+		
 		result.set(String.valueOf(hs.size()));
 		context.write(key,result);
-		*/
+		
     }
   }
 
