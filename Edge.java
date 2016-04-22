@@ -84,7 +84,7 @@ public class Edge {
 		public void reduce(Text key,Iterable<Text> values,Context context) throws IOException, InterruptedException{
 			
 			for(Text t:values){
-				if(hs.contains(t.toString())){
+				if(!hs.contains(t.toString())){
 					hs.add(t.toString());
 				}
 			}
@@ -107,7 +107,7 @@ public class Edge {
 		HashSet<String> hs = new HashSet<String>();
 		
 		for(Text t:values){
-			if(hs.contains(t.toString())){
+			if(!hs.contains(t.toString())){
 				hs.add(t.toString());
 			}
 		}
