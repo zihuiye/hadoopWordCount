@@ -43,8 +43,8 @@ public class Edge {
 
 					
 		String [] l = value.toString().split("[^0-9]");
-		word.set(l[0]);
-		v.set(l[1]);
+		word.set(value.toString());
+		v.set(value.String());
 		context.write(word,v);
 		
 		/*
