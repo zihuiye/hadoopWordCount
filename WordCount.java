@@ -39,8 +39,7 @@ public class WordCount {
                     ) throws IOException, InterruptedException {
 
 					
-	  //String [] l = value.toString()
-	  //.split("[^a-zA-Z]");
+	  String [] l = value.toString().split("[^a-zA-Z]");
 	  
 	  
 	  for(String line: l){
