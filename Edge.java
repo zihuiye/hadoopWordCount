@@ -44,7 +44,7 @@ public class Edge {
 					
 		String [] l = value.toString().split("[^0-9]");
 		word.set(value.toString());
-		v.set(value.String());
+		v.set(value.toString());
 		context.write(word,v);
 		
 		/*
