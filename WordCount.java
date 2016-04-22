@@ -13,8 +13,6 @@
  */
 
 
-package com.ye.hadoop;
-
 import java.io.IOException;
 //import java.util.StringTokenizer;
 
@@ -43,10 +41,8 @@ public class WordCount {
 					
 	  //String [] l = value.toString()
 	  //.split("[^a-zA-Z]");
-	  word.set(value.toString());
-	  context.write(word,one);
 	  
-	  /*
+	  
 	  for(String line: l){
 			if(!line.isEmpty()){
 				line = line.toLowerCase();
@@ -60,7 +56,7 @@ public class WordCount {
 			
 			
 	  }
-	  */
+	  
 	  /*
       StringTokenizer itr = new StringTokenizer(value.toString(),"[^a-zA-Z]");
       while (itr.hasMoreTokens()) {
