@@ -153,7 +153,7 @@ public class Edge {
                        Context context) throws IOException, InterruptedException{
 			for(Text t:values){
 				
-				context.write(key,t);
+				context.write(t,t);
 				
 			}
 		}
