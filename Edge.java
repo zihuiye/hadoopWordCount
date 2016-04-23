@@ -161,7 +161,7 @@ public class Edge {
     job.setMapperClass(SplitMapper.class);
     job.setCombinerClass(DuplicateCombiner.class);
 	
-	//job.setSortComparatorClass(decentComparator.class);
+	job.setSortComparatorClass(decentComparator.class);
 	
     job.setReducerClass(IntSumReducer.class);
     job.setOutputKeyClass(Text.class);
