@@ -107,8 +107,7 @@ public class Edge {
     private Text result = new Text();
 	
     public void reduce(Text key, Iterable<Text> values, 
-                       Context context
-                       ) throws IOException, InterruptedException {
+                       Context context) throws IOException, InterruptedException {
 		
 		
 		HashSet<String> hs = new HashSet<String>();
@@ -127,15 +126,42 @@ public class Edge {
     }
   }
   
-  /*
-  public static class exchangeMapper extends Mapper<Object, Text, Text, Text>{
-	  
+  
+  
+  
+  
+  public static class SwitchMapper extends Mapper<Object, Text, Text, Text>{
+		private Text word = new Text();
+		private Text v = new Text();
+		
+	  public void map(Object key, Text value, Context context
+                    ) throws IOException, InterruptedException{
+		  
+			String [] l = value.toString().split("[^0-9]");
+			word.set(l[0]);
+			v.set(l[1]);
+			context.write(v,word);
+	  }
+		
   }
-	*/
 	
-	public static class decentComparator extends WritableComparator {
+	public static class SwitchReducer extends Reducer<Object, Text, Text, Text>{
+		
+		
+		
+		public void reduce(Text key, Iterable<Text> values, 
+                       Context context) throws IOException, InterruptedException{
+			for(Text t:values){
+				
+				context.wirte(t,key);
+				
+			}
+		}
+	}
 	
-		 protected decentComparator() {
+	public static class DecentComparator extends WritableComparator {
+	
+		 protected DecentComparator() {
 			super(Text.class, true);
 		}
 	
@@ -156,18 +182,41 @@ public class Edge {
       System.err.println("Usage: wordcount <in> <out>");
       System.exit(2);
     }
+	
+	Path tempDir = new Path (¡°/temp/edge¡±);
+
+	
+	
     Job job = new Job(conf, "word count");
     job.setJarByClass(Edge.class);
+	
     job.setMapperClass(SplitMapper.class);
     job.setCombinerClass(DuplicateCombiner.class);
 	
-	job.setSortComparatorClass(decentComparator.class);
+	job.setSortComparatorClass(DecentComparator.class);
 	
     job.setReducerClass(IntSumReducer.class);
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(Text.class);
+	
     FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-    FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+    FileOutputFormat.setOutputPath(job, tempDir);
+	
+	if (job.waitForCompletion(true)) {
+		
+		Job job2 = new Job(conf,"edge");
+		job2.setJarByClass(Edge.class);
+		job2.setMapperClass(SwitchMapper.class);
+		job2.setSortComparatorClass(DecentComparator.class);
+		job2.setReducerClass(SwitchMapper.class);
+		job2.setOutputKeyClass(Text.class);
+		job2.setOutputValueClass(Text.class);
+		FileInputFormat.addInputPath(job2,tempDir);
+		FileOutputFormat.addInputPath(job2,new Path(otherArgs[1]));
+		
+		System.exit(job2.waitForCompletion(true) ? 0 : 1);  
+	}
+
     System.exit(job.waitForCompletion(true) ? 0 : 1);
   }
 }
