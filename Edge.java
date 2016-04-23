@@ -124,9 +124,12 @@ public class Edge {
 		
     }
   }
+  
+  /*
   public static class exchangeMapper extends Mapper<Object, Text, Text, Text>{
 	  
   }
+	*/
 	
   public static void main(String[] args) throws Exception {
     Configuration conf = new Configuration();
