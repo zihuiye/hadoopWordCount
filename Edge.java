@@ -28,7 +28,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
-import org.apache.hadoop.io.RawComparator; 
+import org.apache.hadoop.io.WritableComparable; 
 
 public class Edge {
 
@@ -132,16 +132,18 @@ public class Edge {
   }
 	*/
 	
-	public class decentComparator implements RawComparator<Text> {
+	public class decentComparator extends WritableComparator {
 	
-		public int compare(byte[] b1, int s1, int l1, byte[] b2, int s2, int l2) {
-			return -super.compare(b1,s1,l1,b2,s2,l2);
+		 protected decentComparator() {
+			super(Text.class, true);
 		}
 	
-		 
-		public int compare(Text a,Text b) {  
-			
-			return -a.compareTo(b);
+		@SuppressWarnings("rawtypes")
+		@Override
+		public int compare(WritableComparable w1,WritableComparable w2) {  
+			Text t1 = (Text) w1;
+			Text t2 = (Text) w2; 
+			return -t1.compareTo(t2);
 		}
 } 
 	
