@@ -145,7 +145,7 @@ public class Edge {
 		
   }
 	
-	public static class SwitchReducer extends Reducer<Object, Text, Text, Text>{
+	public static class SwitchReducer extends Reducer<Text, Text, Text, Text>{
 		
 		
 		
