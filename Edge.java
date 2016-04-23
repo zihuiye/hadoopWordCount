@@ -136,7 +136,7 @@ public class Edge {
 	public class decentComparator extends WritableComparator {
 	
 		public decentComparator(){
-			WritableComparator(Text.class);
+			super(Text.class);
 		}
 	
 		public int compare(byte[] b1, int s1, int l1, byte[] b2, int s2, int l2) {
@@ -162,7 +162,7 @@ public class Edge {
     job.setMapperClass(SplitMapper.class);
     job.setCombinerClass(DuplicateCombiner.class);
 	
-	jop.setSortComparatorClass(decentComparator.class);
+	job.setSortComparatorClass(decentComparator.class);
 	
     job.setReducerClass(IntSumReducer.class);
     job.setOutputKeyClass(Text.class);
