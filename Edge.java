@@ -135,7 +135,7 @@ public class Edge {
 	
 	public class decentComparator extends WritableComparator {
 	
-		pubilc decentComparator(){
+		public decentComparator(){
 			WritableComparator(Text);
 		}
 	
