@@ -136,7 +136,7 @@ public class Edge {
 	public class decentComparator extends WritableComparator {
 	
 		public decentComparator(){
-			WritableComparator(Text);
+			WritableComparator(Text.class);
 		}
 	
 		public int compare(byte[] b1, int s1, int l1, byte[] b2, int s2, int l2) {
