@@ -115,13 +115,13 @@ public class Edge {
 				hs.add(t.toString());
 			}
 			
-			context.write(key,t);
+			//context.write(key,t);
 		}
 		
-		/*
+		
 		result.set(String.valueOf(hs.size()));
 		context.write(key,result);
-		*/
+		
     }
   }
 
