@@ -133,7 +133,7 @@ public class Edge {
   }
 	*/
 	
-	public class decentComparator extends WritableComparator {
+	public static class decentComparator extends WritableComparator {
 	
 		 protected decentComparator() {
 			super(Text.class, true);
