@@ -183,7 +183,7 @@ public class Edge {
       System.exit(2);
     }
 	
-	Path tempDir = new Path (¡°/temp/edge¡±);
+	Path tempDir = new Path ("/temp/edge");
 
 	
 	
