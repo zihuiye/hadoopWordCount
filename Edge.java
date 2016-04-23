@@ -119,7 +119,7 @@ public class Edge {
 		}
 		
 		
-		result.set(String.format("%02d",String.valueOf(hs.size())));
+		result.set(String.format("%02d",hs.size()));
 		context.write(key,result);
 		
     }
