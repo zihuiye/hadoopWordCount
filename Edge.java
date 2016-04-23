@@ -119,12 +119,15 @@ public class Edge {
 		}
 		
 		
-		result.set(String.valueOf(hs.size()));
+		result.set(String.format("%02d",String.valueOf(hs.size())));
 		context.write(key,result);
 		
     }
   }
-
+  public static class exchangeMapper extends Mapper<Object, Text, Text, Text>{
+	  
+  }
+	
   public static void main(String[] args) throws Exception {
     Configuration conf = new Configuration();
     String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
