@@ -193,7 +193,7 @@ public class Edge {
     job.setMapperClass(SplitMapper.class);
     job.setCombinerClass(DuplicateCombiner.class);
 	
-	job.setSortComparatorClass(DecentComparator.class);
+	//job.setSortComparatorClass(DecentComparator.class);
 	
     job.setReducerClass(IntSumReducer.class);
     job.setOutputKeyClass(Text.class);
