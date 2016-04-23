@@ -208,7 +208,7 @@ public class Edge {
 		job2.setJarByClass(Edge.class);
 		job2.setMapperClass(SwitchMapper.class);
 		job2.setSortComparatorClass(DecentComparator.class);
-		job2.setReducerClass(SwitchMapper.class);
+		job2.setReducerClass(SwitchReducer.class);
 		job2.setOutputKeyClass(Text.class);
 		job2.setOutputValueClass(Text.class);
 		FileInputFormat.addInputPath(job2,tempDir);
