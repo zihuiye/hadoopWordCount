@@ -28,8 +28,8 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
-import org.apache.hadoop.io.WritableComparable;  
-import org.apache.hadoop.io.WritableComparator;  
+ 
+import org.apache.hadoop.io.Comparator;  
 
 public class Edge {
 
@@ -133,15 +133,16 @@ public class Edge {
   }
 	*/
 	
-	public class decentComparator extends WritableComparator {
+	public class decentComparator extends Comparator {
 	
-    public decentComparator() {  
-        super();  
-    }  
+	public int compare(byte[] b1, int s1, int l1, byte[] b2, int s2, int l2) {
+        return -super.compare(b1, s1, l1, b2, s2, l2);
+    }
+	
     @Override  
     public int compare(WritableComparable a, WritableComparable b) {  
         return -super.compare(a,b);
-    }  
+    }
 } 
 	
 	
@@ -157,7 +158,7 @@ public class Edge {
     job.setMapperClass(SplitMapper.class);
     job.setCombinerClass(DuplicateCombiner.class);
 	
-	jop.setSortComparator(decentComparator.class);
+	jop.setSortComparatorClass(decentComparator.class);
 	
     job.setReducerClass(IntSumReducer.class);
     job.setOutputKeyClass(Text.class);
