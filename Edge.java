@@ -137,8 +137,8 @@ public class Edge {
 	
 		
 	
-		@Override  
-		public int compare(Text a, Text b) {  
+		 
+		public int compare(WritableComparable a, WritableComparable b) {  
 			
 			return b.compareTo(a);
 		}
